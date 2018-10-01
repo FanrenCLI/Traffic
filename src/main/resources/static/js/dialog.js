@@ -64,9 +64,10 @@
 });
   $( function() {
 	    $( "#dialog_9" ).dialog({
-		autoOpen:false,
-		height:600,
-		width:940,
+	    	autoOpen:false,
+			height:110,
+			width:600,
+			position: { my: "right", at: "right-23% top+17% ",of: window }
 	    });
 });
   $( function() {
