@@ -38,7 +38,7 @@ $("#pwd_change_2").click(function(){
 });
 /**=========================================密码修改=======================================================**/
 $("#exit").click(function(){
-	window.location.href = "http://localhost:8081/login.html";
+	window.location.href = "http://39.105.26.229:8080/Traffic/login.html";
 });
 
 

@@ -13,7 +13,7 @@ function login(username,password){
 				}else{
 					Data=data;
 					alert("登录成功");
-					window.location.href = "http://localhost:8081/main.html?username="+data;
+					window.location.href = "http://39.105.26.229:8080/Traffic/main.html?username="+data;
 				}
 			}
 		});
