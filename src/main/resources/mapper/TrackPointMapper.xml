@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fanren.Traffic.DAO.TrackPointMapper">
+	<resultMap type="com.fanren.Traffic.pojo.TrackPoint" id="BaseResultMap">
+		<result column="time" jdbcType="CHAR" property="time"/>
+		<result column="lon" jdbcType="CHAR" property="lon"/>
+		<result column="lat" jdbcType="CHAR" property="lat"/>
+	</resultMap>
+	<select id="getTrackPoint" parameterType="string" resultMap="BaseResultMap">
+		SELECT 
+		  `time`,
+		  `lon`,
+		  `lat`
+		  FROM `${table_name}`
+	</select>
+</mapper>

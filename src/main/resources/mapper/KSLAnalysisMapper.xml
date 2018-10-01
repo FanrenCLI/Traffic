@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fanren.Traffic.DAO.KSLAnalysisMapper">
+	<resultMap type="com.fanren.Traffic.pojo.KSLAnalysis" id="BaseResultMap">
+		<result column="time" jdbcType="CHAR" property="time"/>
+		<result column="status" jdbcType="CHAR" property="status"/>
+	</resultMap>
+	<select id="SelectKSLAnalysisByDate" parameterType="string" resultMap="BaseResultMap">
+		SELECT 
+		  `time`,
+		  `status`
+		  FROM `${table_name}`
+	</select>
+</mapper>

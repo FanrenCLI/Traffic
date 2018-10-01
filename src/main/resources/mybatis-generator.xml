@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  
+    <jdbcConnection 
+    driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/ai_taxi_1?characterEncoding=utf-8&amp;serverTimezone=UTC"
+        userId="root"
+        password="111">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    
+	<!-- 指定java模型生成位置 -->
+    <javaModelGenerator targetPackage="com.fanren.Traffic.pojo" targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+	<!-- 指定sql映射文件的位置 -->
+    <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	<!-- 指定DAO接口的生成位置，mapper接口 -->
+    <javaClientGenerator type="XMLMAPPER" 
+    					targetPackage="com.fanren.Traffic.DAO"  
+    					targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+	<!-- 指定数据库中的sql表 -->
+    <table tableName="change_point" domainObjectName="Change_Point"></table>
+
+  </context>
+</generatorConfiguration>

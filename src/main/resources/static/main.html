@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>管理系统界面</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/adminlte.min.css">
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+   <!--引入bootstrap  -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css">
+   <!-- 引入jQuery UI -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <script src="js/jquery-ui.js"></script> 
+    <!-- 引入窗体 -->
+  <script src="js/dialog.js"> </script>
+  <!-- AdminLTE App -->
+  <script src="js/adminlte.min.js"></script>
+  <!-- 引入echartsAPI <script type="text/javascript" src="js/main.js"></script>-->
+  <script type="text/javascript" src="js/echarts.min.js"></script>
+  <!-- 解决Arcgis js API 与echartsAPI的dojo冲突 -->
+  <script type="text/javascript">
+	  var dojoConfig = {
+		        parseOnLoad: true,
+		        packages: [{
+		            "name": "js",
+		            "location": "/js"
+		        }]
+		    };
+  </script>
+  <!-- arcgis js API -->
+  <link rel="stylesheet" href="http://localhost:8080/JSAPI/4.5/dijit/themes/claro/claro.css"/>
+
+<link rel="stylesheet" href="http://localhost:8080/JSAPI/4.5/esri/css/main.css" />
+  <script src="http://localhost:8080/JSAPI/4.5/dojo/dojo.js"></script> 
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <p ><h1 style="font-family:STXingkai">&nbsp;出 行 行 为 分 析 管 理 系 统</h1></p>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="img/taxi.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8;margin-top:3px ">
+      <span class="brand-text font-weight-light" style="font-family:STXingkai;font-size:30px">FanrenCLI</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="img/admin.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block" id="userInfo">FanrenCLI</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+                &nbsp;<i class="fa fa-user-circle-o fa-fw fa-x"></i>
+              <p>
+                  &nbsp;&nbsp;用户管理
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p id="user_data">用户信息</p>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p id="pwd_change">修改密码</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p id="exit" >注销</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                  &nbsp;<i class="fa fa-automobile fa-fw fa-x"></i>
+                <p>
+                    &nbsp;&nbsp;车辆管理
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active" >
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p id="add_taxi">添加车辆</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p id="del_taxi">删除车辆</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p id="query_data">信息查询</p>
+                    </a>
+                  </li>
+                <li class="nav-item">
+                   <a href="#" class="nav-link active">
+                     <i class="fa fa-circle-o nav-icon"></i>
+                     <p id="send_data">信息发送</p>
+                   </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p id="updata_taxi">修改信息</p>
+                    </a>
+                </li>
+              </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                  &nbsp;<i class="fa fa-line-chart fa-fw fa-x"></i>
+                <p>
+                    &nbsp;&nbsp;数据挖掘
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p id="KSL_analysis">空驶率分析</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p id="change_point">上下客点分析</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p id="track">轨迹追踪</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p id="speed">车辆速度分析</p>
+                    </a>
+                </li>
+              </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                  &nbsp;<i class="fa fa-sun-o fa-fw fa-x"></i>
+                <p>
+                    &nbsp;&nbsp;关于
+                  <i class="right fa fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                      <i class="fa fa-circle-o nav-icon"></i>
+                      <p>数据来源</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>功能介绍</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>系统信息</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!--map contain-->
+  <div class="content-wrapper" id="map" style="padding:0; margin: 0;height: 100%; width: 100%;">
+    <!-- 用户信息窗口 -->
+	<div id="dialog" title="用户信息" >
+		<div style="margin-left: 115px">
+		<p ><h5>登录信息</h5></p>
+		</div>
+		<form class="form-inline">
+		  <div class="form-group" >
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="user_id" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="user_name" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >Telephone:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="user_tel" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID Card:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="user_card">
+		  </div>
+		</form>
+	</div>
+	
+	<div id="dialog_1" title="信息修改" >
+		<p><h5>修改密码</h5></p>
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Old Password</label>
+		    <input type="password" class="form-control" id="old_pwd" placeholder="Old Password">
+		  </div>
+	    <div class="form-group">
+	      <label for="exampleInputPassword1">New Password</label>
+	      <input type="password" class="form-control" id="new_pwd" placeholder="New Password">
+	    </div>
+		<br>
+		<button type="button" class="btn btn-info" style="margin-left: 360px" id="pwd_change_2">确定(Ok)</button>
+	</div>
+	<div id="dialog_2" title="添加车辆" >
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">车牌号:</label>
+		    <input type="text" class="form-control" id="taxi_id" placeholder="ID">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">电话:</label>
+		    <input type="text" class="form-control" id="taxi_tel" placeholder="Telephone">
+		  </div>
+		  <button type="button" class="btn btn-info" style="margin-left: 360px" id="add_taxi_1">确定(Ok)</button>
+	</div>
+	<div id="dialog_3" title="删除车辆" >
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">车牌号:</label>
+		    <input type="text" class="form-control" id="taxi_id_1" placeholder="ID">
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">电话:</label>
+		    <input type="text" class="form-control" id="taxi_tel_1" placeholder="Telephone">
+		  </div>
+		  <button type="button" class="btn btn-info" style="margin-left: 360px" id="del_taxi_1">确定(Ok)</button>
+	</div>
+	<div id="dialog_4" title="车辆信息" >
+		<form class="form-inline">
+		  <div class="form-group"style="margin-top: 30px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbspOld ID:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="old_taxi_id" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New ID:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="new_taxi_id" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Old Tel:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="old_taxi_tel" >
+		  </div>
+		  <div class="form-group"style="margin-top: 15px">
+		    <label >&nbsp;&nbsp;&nbsp;&nbsp;New Tel:&nbsp;&nbsp;</label>
+		    <input type="text" class="form-control" id="new_taxi_tel">
+		  </div>
+		  <div style="margin-top: 15px">
+		  <button type="button" class="btn btn-info" style="margin-left: 230px" id="updata_taxi_1">确定(Ok)</button>
+		  </div>
+		</form>
+	</div>
+	<div id="dialog_5" title="车辆信息" >
+		<div class="row">
+		  <div class="col-lg-8">
+		    <div class="input-group">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">车牌号:</button>
+		      </span>
+		      <input type="text" class="form-control" id="query_taxi_id">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="query_data_1">查询</button>&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="Map_show">地图显示</button>&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="Map_clean">清空图层</button>
+		</div><!-- /.row -->
+		<div class="row" style="margin-top: 15px">
+	        <div class="col-md-12">
+	            <table class="table table-hover table-bordered table-striped" id="taxi_table">
+	                <thead>
+	                <tr>
+	                    <th>车牌号</th>
+	                    <th>电话</th>
+	                    <th>经度</th>
+	                    <th>纬度</th>
+	                    <th>状态</th>
+	                    <th>速度</th>
+	                    <th>操作</th>
+	                </tr>
+	                </thead>
+	                <tbody>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+	<!-- 空驶率弹出窗口 -->
+	<div id="dialog_6" title="数据挖掘" >
+		<div class="row">
+		  <div class="col-lg-4">
+		    <div class="input-group">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">车牌号:</button>
+		      </span>
+		      <input type="text" class="form-control" id="KSL_taxi_id">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->&nbsp;&nbsp;&nbsp;
+		  <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">起始日期:</button>
+	      </span>
+		  <input type="date" value="2018-03-19" id="start_data">&nbsp;&nbsp;&nbsp;
+		  <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">最后日期:</button>
+	      </span>
+		  <input type="date" value="2018-03-24" id="end_data">&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="KSL_query">分析</button>
+		  
+		</div>
+		<!-- 图表 -->
+		<div id="container" style="height:90%;">
+		</div>
+	</div>
+	<!-- 轨迹追踪弹出框 -->
+	<div id="dialog_7" title="数据挖掘" >
+		<div class="row">
+		  <div class="col-lg-4">
+		    <div class="input-group">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">车牌号:</button>
+		      </span>
+		      <input type="text" class="form-control" id="track_taxi_id">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->&nbsp;&nbsp;&nbsp;
+		  <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">选择日期:</button>
+	      </span>
+		  <input type="date" value="2018-03-19" id="begin_date">&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="track_query">轨迹追踪</button>
+		  &nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="show_all">完全显示</button>&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="clear_all">清除图层</button>
+		</div>
+	</div>
+	<!-- 平均速度弹出窗口 -->
+	<div id="dialog_8" title="数据挖掘" >
+		<div class="row">
+		  <div class="col-lg-4">
+		    <div class="input-group">
+		      <span class="input-group-btn">
+		        <button class="btn btn-default" type="button">车牌号:</button>
+		      </span>
+		      <input type="text" class="form-control" id="speed_taxi_id">
+		    </div><!-- /input-group -->
+		  </div><!-- /.col-lg-6 -->&nbsp;&nbsp;&nbsp;
+		  <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">选择日期:</button>
+	      </span>
+		  <input type="date" value="2018-03-19" id="speed_start_data">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="speed_query">图表绘制</button>
+		  
+		</div>
+		<!-- 图表 -->
+		<div id="speed_table" style="height:90%;">
+		</div>
+	</div>
+	<!-- 上下客点弹出窗口 -->
+	<div id="dialog_9" title="数据挖掘" >
+		<div class="row">
+		  <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">选择日期:</button>
+	      </span>
+		  <input type="date" value="2018-03-19" id="change_point_date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="change_pointAnalysis">数据分析</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="show_point">全部显示</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="init_layer">初始化图层</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <button type="button" class="btn btn-default" id="clean_layer">清空图层</button>
+		  
+		</div>
+	</div>
+	<div id="dialog_10" title="信息发送" >
+		<div class="form-group">
+	      <label for="exampleInputEmail1">请输入车牌号:</label>
+	      <input type="text" class="form-control"  style="width:200px">
+	    </div>
+		<div class="form-group">
+	      <label for="exampleInputEmail1">信息内容:</label><br>
+	      <textarea class="form-control" rows="9" ></textarea>
+	    </div>
+	    <button type="button" class="btn btn-info" style="float: right" id="show_success">确定(Ok)</button>
+	    
+		<div class="alert alert-success alert-dismissible" role="alert" id="my_success" style="width:150px ;text-align: center ;display:none">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <strong>Success!</strong> 
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+  </div>
+</div>
+
+<!-- REQUIRED SCRIPTS -->
+<!-- 加载登录js -->
+<script type="text/javascript" src="js/login.js"></script>
+<!-- 用户管理操作 -->
+<script type="text/javascript" src="js/user_function.js"></script>
+<!-- 车辆管理操作 -->
+<script type="text/javascript" src="js/taxi_function.js"></script>
+<!-- 数据分析操作 -->
+<script type="text/javascript" src="js/Data_analysis.js"></script>
+<!-- 加载图层文件 -->
+<script src="js/loadmap.js"> </script>
+</body>
+</html>
