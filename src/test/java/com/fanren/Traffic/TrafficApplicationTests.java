@@ -100,10 +100,15 @@ public class TrafficApplicationTests {
 	}
 	@Test
 	public void test3() throws Exception {
-		String date="2018-03-20";
-		String taxi_id="苏fb5173";
-		List<String> track_list=DataToString.getTwoDayTablename(date, date, taxi_id);
-		System.out.println(track_list.toString());
+		String start="2018-03-19";
+		String end="2018-03-24";
+		List<taxi> list_taxi=taxiservice.getTaxiId();
+		List<List<TimeAndKSL>> list_list_result=new ArrayList<>();
+		
+			List<TimeAndKSL> list_result=SingleTaxiData.getSingleTaxiData(start, end, list_taxi.get(1).getTaxiId().toString(), KSLAnalysisservice);
+			System.out.print(list_result.toString().toString());
+		
+		
 	}
 	
 	

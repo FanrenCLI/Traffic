@@ -76,6 +76,19 @@
 		width:800,
 	    });
 });
-  
+  $( function() {
+	    $( "#dialog_11" ).dialog({
+		autoOpen:false,
+		height:500,
+		width:800,
+	    });
+});
+  $( function() {
+	    $( "#dialog_12" ).dialog({
+		autoOpen:false,
+		height:500,
+		width:800,
+	    });
+});
   
   

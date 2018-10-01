@@ -197,21 +197,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>数据来源</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                   <a href="#" class="nav-link active">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>功能介绍</p>
+                    <p id="function_introduce">功能介绍</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link active">
                     <i class="fa fa-circle-o nav-icon"></i>
-                    <p>系统信息</p>
+                    <p id="about">系统信息</p>
                   </a>
                 </li>
               </ul>
@@ -441,8 +435,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		  <strong>Success!</strong> 
 		</div>
 	</div>
-	
-	
+	<div id="dialog_11" title="系统信息" >
+		<div class="panel-body">
+            <h1>出行行为分析管理系统</h1>
+            <p>Outdoor Behavior Analysis Management System</p>
+            <p>追求精准、快捷、科学的出行行为分析管理系统</p>
+            <p>版本：1.0.0 RC</p>
+            <br/><br/><br/><br/>
+        </div>
+            <div class="panel-footer" style="font-size: 0.7em;">
+                <br/>
+                <p>OBAM System</p>
+                <p>版权所有： 2018 南通大学 地理科学学院 陆杰 保留所有权利。</p>
+                <p>本系统的诞生离不开各类开源软件的支持。</p>
+                <p>此版本仅为参与竞赛使用，所用数据依据国家法律规定不得公开</p>
+            </div>
+	</div>
+	<div id="dialog_12" title="功能简介" >
+		<h3>用户管理模块</h3>
+          <b>答：</b>
+          <p>
+          	此模块主要用于管理登录用户，其中包含查询登录用户信息、修改登录用户信息、注销用户登录。通过此模块功能用户可以通过相应的操作修改自己的信息。
+          </p>
+
+          <h3>车辆管理模块</h3>
+          <b>答：</b>
+          <p>
+          此模块主要用于管理车辆相关信息。添加、删除、修改车辆信息这三个功能主要管理车辆的入库、修改操作。信息查询功能用于查询实时车辆的状态，包括：车辆位置、车辆状态、车辆速度等相关信息。
+			信息发送功能是用于管理人员对车辆实时的发送信息。
+          </p>
+			
+          <h3>数据挖掘模块</h3>
+          <b>答：</b>
+          <p>
+          	此模块用于挖掘车辆历史数据中隐藏的含有价值的信息。空驶率可以让人直观的发现车辆一段时间内的空载状态，有利于管理人员对车辆的空间分布进行调度、也可以对结合天气情况分析。上下载客点功能可以让管理人员了解
+          	一定时期内上下客点集中分布的区域，有引导的让出租车去往相关密集区，提高城市出行效率。轨迹追踪功能有着轨迹回放的和定点查看的能力，让管理人员可以对某天的出租车各个时间段的所在位置以及相关的信息有着清晰的
+          	了解。车辆速度功能主要用于分析车辆的实时速度以及结合载客状态计算得出载客均速，从而可以分析得出城市交通通行程度对智慧城市的建设有着很大的帮助。
+          </p>
+	</div>
 	
 	
 	
@@ -461,6 +491,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script type="text/javascript" src="js/taxi_function.js"></script>
 <!-- 数据分析操作 -->
 <script type="text/javascript" src="js/Data_analysis.js"></script>
+<!-- 其他操作 -->
+<script type="text/javascript" src="js/other.js"></script>
 <!-- 加载图层文件 -->
 <script src="js/loadmap.js"> </script>
 </body>
