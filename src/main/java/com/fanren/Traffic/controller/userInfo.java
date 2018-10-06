@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fanren.Traffic.pojo.User;
 import com.fanren.Traffic.service.UserService;
 
+/**
+ * @author FanrenCLI
+ * @Time 2018年10月3日-上午11:57:10
+ * @version 0.0.1
+ */
 @Controller
 public class userInfo {
 

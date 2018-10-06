@@ -12,6 +12,11 @@ import com.fanren.Traffic.pojo.Taxi_query;
 import com.fanren.Traffic.service.TaxiQueryService;
 import com.fanren.Traffic.service.TaxiService;
 
+/**
+ * @author FanrenCLI
+ * @Time 2018年10月3日-上午11:56:48
+ * @version 0.0.1
+ */
 @RestController
 public class taxiInfo {
 
